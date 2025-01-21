@@ -37,7 +37,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <div className=''>
+    <div className='max-w-screen-xl mx-auto'>
     <RouterProvider router={router} />
     </div>
     </AuthProvider>

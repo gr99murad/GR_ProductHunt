@@ -52,14 +52,14 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">GR_Library</a>
+    <a className="btn btn-ghost text-xl">GR_ProductHunt</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
     {links}
     </ul>
   </div>
-  <div className="navbar-end flex gap-5">
+  <div className="navbar-end">
   {!user ? (
     <>
        <NavLink to="/login"><button className='btn btn-primary'>Login</button></NavLink>
@@ -68,10 +68,10 @@ const Navbar = () => {
 
   ):(
     <div className='dropdown dropdown-end'>
-      <div className='tooltip tooltip-bottom' data-tip={user.displayName || "User"} tabIndex={0} role='button'>
+      <div className='tooltip tooltip-bottom' tabIndex={0} role='button'>
         <img src={user.photoURL || 'avatar.png'} alt="User Avatar" className='w-10 h-10 rounded-full cursor-pointer' />
       </div>
-      <ul tabIndex={0} className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'>
+      <ul tabIndex={0} className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-4 shadow'>
         <li className='disabled'>
           <a>{user.displayName || 'User'}</a>
         </li>
@@ -88,8 +88,7 @@ const Navbar = () => {
         
       
     </div>
-  )
-}
+  )}
 
   </div>
   
