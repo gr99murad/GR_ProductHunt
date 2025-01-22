@@ -25,12 +25,12 @@ const Banner = () => {
         
     };
     return (
-        <div className='w-60 md:w-[700px] lg:w-full mx-auto h-96  relative'>
+        <div className='w-60 md:w-[700px] lg:w-full mx-auto h-96 relative overflow-hidden'>
             <Slider {...setting}>
                 <div className='relative'>
                     <img className='w-full h-full object-cover ' src={webAppImg} alt="" />
                     <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 p-6 md:p-8'>
-                        <div className='text-center text-white'>
+                        <div className='text-center lg:mb-72 text-white'>
                             <h2 className='text-2xl md:text-3xl lg:text-4xl'>Discover Innovative Web Apps</h2>
                             <p className='text-sm text-base md:text-lg'>Explore cutting-edge web applications that simplify your work and enhance productivity.</p>
                             
@@ -42,7 +42,7 @@ const Banner = () => {
                 <div className='relative'>
                     <img className='w-full h-full object-cover' src={aiImg} alt="" />
                     <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 p-5'>
-                        <div className='text-center text-white'>
+                        <div className='text-center lg:mb-72 text-white'>
                             <h2 className='text-2xl md:text-3xl lg:text-4xl'>Revolutionary AI Tools</h2>
                             <p className='text-sm md:text-base lg:text-lg'>Unleash the power of artificial intelligence to solve complex challenges and automate tasks.</p>
                             
@@ -54,7 +54,7 @@ const Banner = () => {
                 <div className='relative'>
                     <img className='w-full h-full object-cover' src={softwareImg} alt="" />
                     <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 p-5'>
-                        <div className='text-center text-white'>
+                        <div className='text-center lg:mb-72 text-white'>
                             <h2 className='text-2xl md:text-3xl lg:text-4xl'>Discover Game-Changing Software</h2>
                             <p className='text-sm md:text-base lg:text-lg'>Find software solutions tailored to your business, creativity, and personal needs.</p>
                             
@@ -66,7 +66,7 @@ const Banner = () => {
                 <div className='relative'>
                     <img className='w-full h-full object-cover' src={gamesImg} alt="" />
                     <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 p-5'>
-                        <div className='text-center text-white'>
+                        <div className='text-center lg:mb-72 text-white'>
                             <h2 className='text-2xl md:text-3xl lg:text-4xl'>Fun and Engaging Games</h2>
                             <p className='text-sm md:text-base lg:text-lg'>Discover games that challenge your mind, entertain, and offer unforgettable experiences.</p>
                             
@@ -78,7 +78,7 @@ const Banner = () => {
                 <div className='relative'>
                     <img className='w-full h-full object-cover' src={mobileAppImg} alt="" />
                     <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 p-5'>
-                        <div className='text-center text-white'>
+                        <div className='text-center lg:mb-72 text-white'>
                             <h2 className='text-2xl md:text-3xl lg:text-4xl'>Top Mobile Apps to Try</h2>
                             <p className='text-sm md:text-base lg:text-lg'>Explore the best mobile applications that enhance your daily life and productivity.</p>
                             

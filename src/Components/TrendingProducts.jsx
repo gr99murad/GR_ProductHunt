@@ -42,12 +42,15 @@ const TrendingProducts = () => {
     return (
         <div>
             <h2 className='text-xl font-bold my-4 text-center'>Trending Products</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {products.map(product => (
                 <div key={product._id} className='border rounded p-4'>
                     <img className='w-16 h-16 rounded ' src={product.image} alt={product.name} />
+                    <div>
                     <h3 className='text-lg font-semibold cursor-pointer' onClick={() => navigate(`/products/${product._id}`)}>{product.name}</h3>
                     <p>{product.tags.join(', ')}</p>
+                    </div>
+
 
                     <button className='btn flex items-center mt-2' onClick={() => handleUpvote(product._id)} disabled={product.voted}>
                         {product.votes} <BiUpvote></BiUpvote>
