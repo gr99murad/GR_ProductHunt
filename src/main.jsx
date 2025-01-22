@@ -12,6 +12,7 @@ import Login from './Authentication/Login';
 import Home from './Pages/Home';
 import ErrorPage from './Pages/ErrorPage';
 import ProductDetails from './Pages/ProductDetails';
+import Products from './Pages/Products';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/products",
+        element: <Products></Products>,
       },
       {
         path: "/products/:id",
