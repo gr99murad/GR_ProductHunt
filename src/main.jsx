@@ -11,6 +11,7 @@ import AuthProvider from './context/AuthContext/AuthProvider';
 import Login from './Authentication/Login';
 import Home from './Pages/Home';
 import ErrorPage from './Pages/ErrorPage';
+import ProductDetails from './Pages/ProductDetails';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/products/:id",
+        element: <ProductDetails></ProductDetails>,
       },
     ]
   },
