@@ -13,6 +13,11 @@ import Home from './Pages/Home';
 import ErrorPage from './Pages/ErrorPage';
 import ProductDetails from './Pages/ProductDetails';
 import Products from './Pages/Products';
+import PrivateRoute from './Components/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyProfile from './Components/Dashboard/MyProfile';
+import AddProduct from './Components/Dashboard/AddProduct';
+import MyProducts from './Components/Dashboard/MyProducts';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +46,26 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login></Login>,
+  },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute>
+      <Dashboard></Dashboard>
+    </PrivateRoute>,
+    children: [
+      {
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "addProduct",
+        element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "myProducts",
+        element: <MyProducts></MyProducts>,
+      },
+    ]
   },
 ]);
 

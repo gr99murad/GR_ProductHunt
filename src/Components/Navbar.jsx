@@ -68,10 +68,10 @@ const Navbar = () => {
 
   ):(
     <div className='dropdown dropdown-end'>
-      <div className='tooltip tooltip-bottom' tabIndex={0} role='button'>
+      <div className='tooltip tooltip-bottom' tabIndex={0} role='button' aria-label="User Menu">
         <img src={user.photoURL || 'avatar.png'} alt="User Avatar" className='w-10 h-10 rounded-full cursor-pointer' />
       </div>
-      <ul tabIndex={0} className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-4 shadow'>
+      <ul tabIndex={0} className='menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-4 shadow'>
         <li className='disabled'>
           <a>{user.displayName || 'User'}</a>
         </li>
