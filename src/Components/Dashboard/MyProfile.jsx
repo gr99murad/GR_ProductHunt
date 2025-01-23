@@ -11,7 +11,8 @@ const MyProfile = () => {
             setShowPaymentModal(true); 
     };
 
-    const handlePaymentSuccess = async () => {
+    const handlePaymentSuccess = async (e) => {
+        e.preventDefault();
         try{
             await axios.post(`http://localhost:5000/subscribe/${user.id}`);
             setSubscribed(true);

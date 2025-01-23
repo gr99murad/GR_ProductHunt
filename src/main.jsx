@@ -18,6 +18,9 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyProfile from './Components/Dashboard/MyProfile';
 import AddProduct from './Components/Dashboard/AddProduct';
 import MyProducts from './Components/Dashboard/MyProducts';
+import UpdateProduct from './Components/Dashboard/UpdateProduct';
+import ProductReviewQueue from './Components/Dashboard/ModeratorDashboard/ProductReviewQueue';
+import ReportedContents from './Components/Dashboard/ModeratorDashboard/ReportedContents';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +67,18 @@ const router = createBrowserRouter([
       {
         path: "myProducts",
         element: <MyProducts></MyProducts>,
+      },
+      {
+        path: "updateProduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+      },
+      {
+        path: "productReviewQueue",
+        element: <ProductReviewQueue></ProductReviewQueue>,
+      },
+      {
+        path: "reportedContents",
+        element: <ReportedContents></ReportedContents>,
       },
     ]
   },
