@@ -4,31 +4,50 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdateProduct = () => {
     const {id} = useParams();
-    const [product, setProduct] = useState({});
-    const navigate = useNavigate();
+    const [product, setProduct] = useState({
+        name: '',
+        tags: '',
+        description: '',
+        image: ''
+    });
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/${id}`)
-        .then(res => setProduct(res.data))
-        .catch(error => console.error('Error fetching product', error));
+        const fetchProduct = async () => {
+            const response = await fetch (`http://localhost:5000/products/${id}`);
+            const data = await response.json();
+            setProduct(data);
+        };
+        fetchProduct();
     }, [id]);
 
-    const handleUpdate = (e) => {
-        e.preventDefault();
-        axios.put(`http://localhost:5000/products/${id}`, product)
-        .then(() => {
-            alert('Product updated successfully');
-            navigate('/myProducts');
-        })
-        .catch(error => console.error('Error updating product', error));
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setProduct((prevProduct) => ({
+            ...prevProduct,
+            [name]: value,
+        }));
     };
 
-    const handleChange = (e) =>{
-        setProduct({ ...product, [e.target.name]: e.target.value});
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(product),
+        });
+
+        const data = await response.json();
+        if(data.message === 'Product updated successfully'){
+            alert('Product updated successfully');
+        }else{
+            alert('Error updating product');
+            console.error('Error updating product');
+        }
     };
     return (
         <div className='container mx-auto p-4'>
-            <form onSubmit={handleUpdate}>
+            <form onSubmit={handleSubmit}>
                 <h2 className='text-2xl font-bold text-center mb-4'>Update Product</h2>
                 <div className='mb-4'>
                    <label className='label'>Name:</label>
@@ -45,14 +64,8 @@ const UpdateProduct = () => {
                    <textarea className='textarea textarea-bordered' name='description' value={product.description || ''} onChange={handleChange} />
                
                 </div>
-                <div className='mb-4'>
-                    <label className='label'>Status:</label>
-                    <select className='select select-bordered' name="status" value={product.status || 'pending'} onChange={handleChange}>
-                        <option value="pending">Pending</option>
-                        <option value="accepted">Accepted</option>
-                        <option value="rejected">Rejected</option>
-                    </select>
-                </div>
+                
+                
                 <button type='submit' className='btn btn-primary'>Update</button>
             </form>
             

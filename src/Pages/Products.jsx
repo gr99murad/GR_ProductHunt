@@ -12,8 +12,14 @@ const Products = () => {
         try{
             const response = await fetch(`http://localhost:5000/products?search=${searchTerm}&page=${page}&limit=6`);
             const data = await response.json();
-            setProducts(data.products);
-            setTotalPages(data.totalPages);
+            if(data.products && data.totalPages !== undefined){
+              setProducts(data.products);
+              setTotalPages(data.totalPages);
+            }else{
+              console.error('Invalid APi response', data);
+              setProducts([]);
+              setTotalPages(1);
+            }
         }catch(error){
             console.error('Error fetching products', error);
         }
@@ -53,7 +59,7 @@ const Products = () => {
                   >
                     {product.name}
                   </h3>
-                  <p>{product.tags.join(", ")}</p>
+                  <p>{ Array.isArray(product.tags) ? product.tags.join(", ") : ''}</p>
                 </div>
               </div>
 
@@ -76,6 +82,7 @@ const Products = () => {
                   : "bg-gray-200"
               }`}
               onClick={() => setCurrentPage(index + 1)}
+              disabled = {currentPage === index + 1}
             >
               {index + 1}
             </button>

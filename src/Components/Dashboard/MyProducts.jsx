@@ -28,7 +28,7 @@ const MyProducts = () => {
     }, [user]);
 
     const handleUpdate = (id) => {
-        navigate(`/updateProduct/${id}`);
+        navigate(`updateProduct/${id}`);
     }
 
     const handleDelete = (id) => {
