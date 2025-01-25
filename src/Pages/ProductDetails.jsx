@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../context/AuthContext/AuthContext';
 import { BiUpvote } from 'react-icons/bi';
+import Products from './Products';
 
 
 const ProductDetails = () => {
@@ -31,23 +32,39 @@ const ProductDetails = () => {
 
     },[id]);
 
-    const handleUpvote = () => {
+    const handleUpvote = (productId) => {
         
         if(!user){
             navigate('/login');
             return;
         }
-        axios.post(`http://localhost:5000/upvote/${id}`, {userId: user.id})
-        .then(() => {
-            setProduct(prevProduct => ({
-                ...prevProduct,
-                votes: prevProduct.votes + 1,
-            }));
+
+        // the product already have voted
+        
+        if(product?.voted){
+            alert("You have already voted for this product");
+            return;
+        }
+        axios.post(`http://localhost:5000/upvote/${productId}`, {userId: user.uid})
+        .then((response) => {
+            
+                if(response.data.message === "User has already voted"){
+                    alert("You have already voted this product");
+                    return;
+                }
+            
+            setProducts((prevProducts) => 
+                prevProducts.map((product) => 
+                product._id === productId 
+                       ? {...product, votes: product.votes + 1, voted: true}
+                        : product
+                )
+            )
         })
         .catch(error => {
             console.error("Error up voting product ", error);
         });
-    };
+    }
 
     const handleReport = () =>{
         if(!user){
@@ -92,8 +109,8 @@ const ProductDetails = () => {
                 <p>Tags: {product.tags.join(', ')}</p>
                 <p>Votes: {product.votes}</p>
 
-                <button className='btn mt-2' onClick={handleUpvote} disabled={product.voted}>
-                    Upvote <BiUpvote></BiUpvote>
+                <button className='btn mt-2' onClick={() => handleUpvote(product._id)} disabled={product.voted}>
+                     {product.votes} {product.voted ? 'upvote' : 'Voted'} <BiUpvote></BiUpvote>
                 </button>
 
                 <button className='btn mt-2 ml-4' onClick={handleReport}>Report</button>

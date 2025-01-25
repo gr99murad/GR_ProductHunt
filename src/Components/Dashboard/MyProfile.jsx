@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
 import axios from 'axios';
 
@@ -6,6 +6,9 @@ const MyProfile = () => {
     const {user} = useContext(AuthContext);
     const [subscribed, setSubscribed] = useState(user?.subscribed || false);
     const [showPaymentModal, setShowPaymentModal] = useState(false);
+
+
+    
 
     const handleSubscribe = async () => {
             setShowPaymentModal(true); 
@@ -15,6 +18,7 @@ const MyProfile = () => {
         e.preventDefault();
         try{
             await axios.post(`http://localhost:5000/subscribe/${user.id}`);
+            // const { data: updatedUser } = await axios.get(`http://localhost:5000/users/${user.uid}`);
             setSubscribed(true);
             setShowPaymentModal(false);
 

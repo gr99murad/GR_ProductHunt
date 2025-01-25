@@ -6,6 +6,8 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext);
 
     const isModerator = user?.role === 'moderator';
+    const isAdmin = user?.role === 'admin';
+    const isUser = user?.role === 'user';
     return (
       <div className="flex h-screen">
         <div className="w-1/4 bg-gray-200 p-4">
@@ -15,18 +17,10 @@ const Dashboard = () => {
               <li className="mb-2">
                 <Link to="/">Home</Link>
               </li>
-              {isModerator && (
+
+              {isUser && (
                 <>
-                  <li className="mb-2">
-                    <Link to="productReviewQueue">Product Review Queue</Link>
-                  </li>
-                  <li className="mb-2">
-                    <Link to="reportedContents">Reported Contents</Link>
-                  </li>
-                 
-                </>
-              )}
-              <li className='mb-2'>
+                <li className='mb-2'>
                         <Link to="myProfile">My Profile</Link> 
 
                     </li>
@@ -38,6 +32,37 @@ const Dashboard = () => {
                         <Link to="myProducts">My Products</Link> 
 
                     </li>
+                
+                </>
+              )}
+              {isModerator && (
+                <>
+                  <li className="mb-2">
+                    <Link to="productReviewQueue">Product Review Queue</Link>
+                  </li>
+                  <li className="mb-2">
+                    <Link to="reportedContents">Reported Contents</Link>
+                  </li>
+                 
+                </>
+              )}
+              {isAdmin && (
+                <>
+                    <li className='mb-2'>
+                        <Link to="statistics">Statistics Page</Link> 
+
+                    </li>
+                    <li className='mb-2'>
+                        <Link to="manageUsers">Manage Users</Link> 
+
+                    </li>
+                    <li className='mb-2'>
+                        <Link to="manageCoupons">Manage Coupons</Link> 
+
+                    </li>
+                </>
+              )}
+              
             </ul>
           </nav>
         </div>

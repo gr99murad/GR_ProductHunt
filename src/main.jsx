@@ -21,6 +21,9 @@ import MyProducts from './Components/Dashboard/MyProducts';
 import UpdateProduct from './Components/Dashboard/UpdateProduct';
 import ProductReviewQueue from './Components/Dashboard/ModeratorDashboard/ProductReviewQueue';
 import ReportedContents from './Components/Dashboard/ModeratorDashboard/ReportedContents';
+import StatisticsPage from './Components/Dashboard/AdminDashboard/StatisticsPage';
+import ManageUsers from './Components/Dashboard/AdminDashboard/ManageUsers';
+import ManageCoupons from './Components/Dashboard/AdminDashboard/ManageCoupons';
 
 const router = createBrowserRouter([
   {
@@ -79,6 +82,18 @@ const router = createBrowserRouter([
       {
         path: "reportedContents",
         element: <ReportedContents></ReportedContents>,
+      },
+      {
+        path: "statistics",
+        element: <StatisticsPage></StatisticsPage>,
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "manageCoupons",
+        element: <ManageCoupons></ManageCoupons>,
       },
     ]
   },

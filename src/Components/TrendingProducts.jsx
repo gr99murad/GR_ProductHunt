@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BiUpvote } from "react-icons/bi";
+import AuthContext from '../context/AuthContext/AuthContext';
 
 const TrendingProducts = () => {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem('user'));
+    const { user } = useContext(AuthContext);
 
 
     useEffect(() => {
@@ -28,16 +29,34 @@ const TrendingProducts = () => {
             navigate('/login');
             return;
         }
-        axios.post(`http://localhost:5000/upvote/${productId}`, {userId: user.id})
-        .then(() => {
-            setProducts(prevProducts => prevProducts.map(product => 
-                product._id === productId ? {...product, votes: product.votes + 1, voted: true} : product
-            ));
+
+        // the product already have voted
+        const product = products.find((product) => product._id === productId);
+        if(product?.voted){
+            alert("You have already voted for this product");
+            return;
+        }
+        axios.post(`http://localhost:5000/upvote/${productId}`, {userId: user.uid})
+        .then((response) => {
+            
+                if(response.data.message === "User has already voted"){
+                    alert("You have already voted this product");
+                    return;
+                }
+            
+            setProducts((prevProducts) => 
+                prevProducts.map((product) => 
+                product._id === productId 
+                       ? {...product, votes: product.votes + 1, voted: true}
+                        : product
+                )
+            )
         })
         .catch(error => {
             console.error("Error up voting product ", error);
         });
     }
+
 
     return (
         <div>
@@ -53,7 +72,7 @@ const TrendingProducts = () => {
 
 
                     <button className='btn flex items-center mt-2' onClick={() => handleUpvote(product._id)} disabled={product.voted}>
-                        {product.votes} <BiUpvote></BiUpvote>
+                        {product.votes} {product.voted ? 'upvote' : 'Voted'} <BiUpvote></BiUpvote>
                     </button>
 
                 </div>

@@ -5,21 +5,22 @@ import { getAuth, signOut } from 'firebase/auth';
 import Swal from 'sweetalert2';
 
 const Navbar = () => {
-  const {user, setOutUser} = useContext(AuthContext);
+  const {user, signOutUser} = useContext(AuthContext);
 
-  const handleLogout = () => {
-    const auth = getAuth();
-    signOut(auth)
-    .then(() => {
-      
-      // console.log('User LOgged Out');
-      // setOutUser(null);
-      Swal.fire('Success', 'Logout successfully!', 'success');
-    })
-    .catch(error => {
-      console.error(error.message);
+  const handleLogout = async () => {
+    
+      try{
+        await signOutUser();
+        Swal.fire('Success', 'Logout successfully!', 'success');
+
+      } catch(error){
+        console.error(error.message);
       Swal.fire('Error',error.message , 'error');
-    });
+
+      }
+      
+  
+    
   };
   const links = (
   <>

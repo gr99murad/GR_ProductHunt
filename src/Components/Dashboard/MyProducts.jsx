@@ -13,7 +13,7 @@ const MyProducts = () => {
         if(user && user.id){
             setLoading(true);
 
-            axios.get(`http://localhost:5000/myProducts/${user.id}`)
+            axios.get(`http://localhost:5000/myProducts/${user.uid}`)
             .then(res => {
                 setProducts(res.data);
                 setLoading(false);
