@@ -10,10 +10,10 @@ const MyProducts = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if(user && user.id){
+        if(user && user.email){
             setLoading(true);
 
-            axios.get(`http://localhost:5000/myProducts/${user.uid}`)
+            axios.get(`http://localhost:5000/products/owner/${user.email}`)
             .then(res => {
                 setProducts(res.data);
                 setLoading(false);
@@ -46,7 +46,10 @@ const MyProducts = () => {
     return (
         <div className='container mx-auto p-4'>
             <h2 className='text-2xl font-bold text-center mb-4'>My Products</h2>
-            <table className='table-auto w-full border-collapse border border-gray-400'>
+            {products.length === 0 ? (
+                <p>No products found</p>
+            ):(
+                <table className='table-auto w-full border-collapse border border-gray-400'>
                 <thead>
                     <tr>
                         <th className='border border-gray-300 px-4 py-2'>Product Name</th>
@@ -71,6 +74,7 @@ const MyProducts = () => {
                     ))}
                 </tbody>
             </table>
+            )}
             
         </div>
     );
