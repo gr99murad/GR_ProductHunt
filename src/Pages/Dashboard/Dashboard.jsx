@@ -1,13 +1,34 @@
-import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext/AuthContext';
+import axios from 'axios';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
+    const [role, setRole] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
-    const isModerator = user?.role === 'moderator';
-    const isAdmin = user?.role === 'admin';
-    const isUser = user?.role === 'user';
+
+    useEffect(() => {
+      const fetchUserRole = async () => {
+        try{
+          const response = await axios.get(`http://localhost:5000/users/${user.email}`)
+          setRole(response.data.role);
+          setLoading(false);
+        }catch(error){
+          console.error('Error fetching role:', error);
+          setLoading(false);
+        }
+      };
+
+      if(user?.email){
+        fetchUserRole();
+      }
+    }, [user]);
+    if(loading) return <p>Loading...</p>;
+
+    if(!user || !role) return <Navigate to="/login" state={{ from: location}}></Navigate>
     return (
       <div className="flex h-screen">
         <div className="w-1/4 bg-gray-200 p-4">
@@ -18,7 +39,7 @@ const Dashboard = () => {
                 <Link to="/">Home</Link>
               </li>
 
-              {isUser && (
+              {role === 'user' && (
                 <>
                 <li className='mb-2'>
                         <Link to="myProfile">My Profile</Link> 
@@ -35,7 +56,7 @@ const Dashboard = () => {
                 
                 </>
               )}
-              {isModerator && (
+              {role === 'moderator' && (
                 <>
                   <li className="mb-2">
                     <Link to="productReviewQueue">Product Review Queue</Link>
@@ -46,7 +67,7 @@ const Dashboard = () => {
                  
                 </>
               )}
-              {isAdmin && (
+              {role === 'admin' && (
                 <>
                     <li className='mb-2'>
                         <Link to="statistics">Statistics Page</Link> 
