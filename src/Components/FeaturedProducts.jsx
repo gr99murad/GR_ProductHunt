@@ -68,7 +68,7 @@ const FeaturedProducts = () => {
                    <img className='w-16 h-16 rounded ' src={product.image} alt={product.name} />
                     <div>
                     <h3 className='text-lg font-semibold cursor-pointer' onClick={() => navigate(`/products/${product._id}`)}>{product.name}</h3>
-                    <p>{product.tags.join(', ')}</p>
+                    <p>{Array.isArray(product.tags) ? product.tags.join(', ') : ''}</p>
                     </div>
                    </div>
 
