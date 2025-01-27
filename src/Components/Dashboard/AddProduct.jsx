@@ -54,7 +54,7 @@ const AddProduct = () => {
             const result = await response.json();
             if(response.ok){
                 toast.success('Product added successfully!');
-                navigate('/myProducts');
+                navigate('/');
             } else{
                 toast.error(result.message || 'Failed to add product!');
             }
