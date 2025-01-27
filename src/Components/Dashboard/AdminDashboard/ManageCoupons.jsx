@@ -71,13 +71,13 @@ const ManageCoupons = () => {
     return (
         <div>
             <h1 className='text-xl font-bold text-center'>Manage Coupons</h1>
-            <form onSubmit={handleSubmit}>
-                <input className='input input-bordered' type="text" name='couponCode' placeholder='Coupon Code' value={couponForm.couponCode} onChange={handleInputChange} />
-                <input className='input input-bordered' type="date" name='expiryDate' placeholder='Expiry Date' value={couponForm.expiryDate} onChange={handleInputChange} />
-                <input className='input input-bordered' type="text" name='description' placeholder='Description' value={couponForm.description} onChange={handleInputChange} />
-                <input className='input input-bordered' type="number" name='discountAmount' placeholder='Discount Amount' value={couponForm.discountAmount} onChange={handleInputChange} />
+            <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
+                <input className='input input-bordered' type="text" name='couponCode' placeholder='Coupon Code' value={couponForm.couponCode} onChange={handleInputChange} required />
+                <input className='input input-bordered' type="date" name='expiryDate' placeholder='Expiry Date' value={couponForm.expiryDate} onChange={handleInputChange} required/>
+                <input className='input input-bordered' type="text" name='description' placeholder='Description' value={couponForm.description} onChange={handleInputChange} required/>
+                <input className='input input-bordered' type="number" name='discountAmount' placeholder='Discount Amount' value={couponForm.discountAmount} onChange={handleInputChange} required />
 
-                <button type='submit'>{editingCouponId ? 'Update Coupon' : 'Add Coupon'}</button>
+                <button className='btn' type='submit'>{editingCouponId ? 'Update Coupon' : 'Add Coupon'}</button>
 
 
             </form>
