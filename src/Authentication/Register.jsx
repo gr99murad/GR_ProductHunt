@@ -23,7 +23,7 @@ const Register = () => {
 
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-        if(!passwordRegex.test(password)){
+        if(!passwordRegex.test(password.value)){
           setError('Password must have an uppercase letter, a lowercase letter, and at least 6 characters');
           toast.error('Password must meet the requirement');
           setLoading(false);
@@ -31,7 +31,7 @@ const Register = () => {
         }
 
         try{
-          const result = await createUser(email.value, password.value)
+          const result = await createUser(email.value, password.value, name.value, photoURL.value)
         
           toast.success('Registration successful!');
           console.log(result.user)

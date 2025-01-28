@@ -101,9 +101,10 @@ const ProductDetails = () => {
         return <div>Loading...</div>
     }
     return (
-        <div className='container mx-auto my-8'>
+        <div className='container mx-auto my-8 px-4'>
+        <h2 className='text-xl font-bold text-center mb-4'>Product Details</h2>
             <div className='border rounded p-4 shadow-md'>
-                <img className='w-full h-auto rounded mb-4' src={product.image} alt={product.name} />
+                <img className=' rounded mb-4' src={product.image} alt={product.name} />
                 <h1 className='text-2xl font-bold'>{product.name}</h1>
                 <p>{product.description}</p>
                 <p>Tags: {product.tags.join(', ')}</p>

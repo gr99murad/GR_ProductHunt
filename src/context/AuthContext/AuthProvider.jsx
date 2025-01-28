@@ -6,8 +6,11 @@ import AuthContext from './AuthContext';
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
-    
+
+
+   
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -21,10 +24,13 @@ const AuthProvider = ({children}) => {
             const currentUser = userCredential.user;
 
 
-            await saveUserInfo(currentUser);
+            // await saveUserInfo(currentUser);
+            await fetchAndSetUserRole(currentUser.email);
             setUser(currentUser);
         }catch(error){
             console.error("Error signing in user", error);
+        }finally{
+            setLoading(false);
         }
     }
 
@@ -33,14 +39,17 @@ const AuthProvider = ({children}) => {
         try{
             await signOut(auth);
             setUser(null);
+            setRole(null);
         }catch(error){
             console.error('Error signing out user', error);
+        }finally{
+            setLoading(false);
         }
         
     };
 
     const saveUserInfo = async (currentUser) => {
-        const { email, displayName, photoURL, uid} = currentUser;
+        const { email, displayName, photoURL} = currentUser;
 
         // check if the user exist in database
         const response = await fetch(`http://localhost:5000/users/${email}`, {
@@ -60,6 +69,14 @@ const AuthProvider = ({children}) => {
         } else{
             console.error('failed to save user info');
         }
+    };
+
+    const fetchAndSetUserRole = async (email) => {
+        const response = await fetch(`http://localhost:5000/users/${email}`);
+        const result = await response.json();
+        if(result?.role){
+            setRole(result.role);
+        }
     }
 
     useEffect( () => {
@@ -68,6 +85,10 @@ const AuthProvider = ({children}) => {
             if(currentUser){
                 setUser(currentUser);
                 await saveUserInfo(currentUser);
+                await fetchAndSetUserRole(currentUser.email);
+            }else{
+                setUser(null);
+                setRole(null);
             }
             setLoading(false);
         })
@@ -79,6 +100,7 @@ const AuthProvider = ({children}) => {
 
     const authInfo = {
         user,
+        role,
         loading,
         createUser,
         signInUser,

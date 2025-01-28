@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         path: "/products/:id",
         element: <ProductDetails></ProductDetails>,
       },
-    ]
+    ],
   },
   {
     path: "/register",
@@ -55,21 +55,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute>
-      <Dashboard></Dashboard>
-    </PrivateRoute>,
+    element: (
+      <PrivateRoute allowedRoles={["user", "moderator", "admin"]}>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoute allowedRoles={["user"]}>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute allowedRoles={["user"]}>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
       {
         path: "myProducts",
-        element: <MyProducts></MyProducts>,
+        element: (
+          <PrivateRoute allowedRoles={["user"]}>
+            <MyProducts></MyProducts>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/myProducts/updateProduct/:id",
@@ -77,25 +91,35 @@ const router = createBrowserRouter([
       },
       {
         path: "productReviewQueue",
-        element: <ProductReviewQueue></ProductReviewQueue>,
+        element: <PrivateRoute allowedRoles={["moderator"]}>
+          <ProductReviewQueue></ProductReviewQueue>
+        </PrivateRoute>,
       },
       {
         path: "reportedContents",
-        element: <ReportedContents></ReportedContents>,
+        element: <PrivateRoute allowedRoles={["moderator"]}>
+          <ReportedContents></ReportedContents>
+        </PrivateRoute>,
       },
       {
         path: "statistics",
-        element: <StatisticsPage></StatisticsPage>,
+        element: <PrivateRoute allowedRoles={["admin"]}>
+          <StatisticsPage></StatisticsPage>
+        </PrivateRoute>,
       },
       {
         path: "manageUsers",
-        element: <ManageUsers></ManageUsers>,
+        element: <PrivateRoute allowedRoles={["admin"]}>
+          <ManageUsers></ManageUsers>
+        </PrivateRoute>,
       },
       {
         path: "manageCoupons",
-        element: <ManageCoupons></ManageCoupons>,
+        element: <PrivateRoute allowedRoles={["admin"]}>
+          <ManageCoupons></ManageCoupons>
+        </PrivateRoute>,
       },
-    ]
+    ],
   },
 ]);
 

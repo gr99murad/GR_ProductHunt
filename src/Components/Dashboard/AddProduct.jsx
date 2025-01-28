@@ -54,7 +54,7 @@ const AddProduct = () => {
             const result = await response.json();
             if(response.ok){
                 toast.success('Product added successfully!');
-                navigate('/');
+                navigate('/dashboard/myProducts');
             } else{
                 toast.error(result.message || 'Failed to add product!');
             }
@@ -103,6 +103,7 @@ const AddProduct = () => {
                 <div>
                     <label className='block font-medium'>Owner Info</label>
                     <input type="text" className='w-full p-2 border rounded' value={user.displayName} disabled />
+                    <img className='w-16 h-16 rounded my-4' src={user.photoURL} alt="" />
                     <input type="email" className='w-full p-2 border rounded mt-2' value={user.email} disabled />
 
                 </div>
