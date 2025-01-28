@@ -7,7 +7,7 @@ const ProductReviewQueue = () => {
 
     useEffect(() => {
         const user = { role: 'moderator'};
-        fetch('http://localhost:5000/moderator/reviewQueue', {
+        fetch('https://product-hunt-server-ivory.vercel.app/moderator/reviewQueue', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const ProductReviewQueue = () => {
             body = null;
         }
 
-        fetch(`http://localhost:5000/${endpoint}`, {
+        fetch(`https://product-hunt-server-ivory.vercel.app/${endpoint}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

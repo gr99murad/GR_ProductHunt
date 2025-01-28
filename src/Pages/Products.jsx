@@ -10,7 +10,7 @@ const Products = () => {
 
     const fetchProducts = async (searchTerm = '', page = 1) => {
         try{
-            const response = await fetch(`http://localhost:5000/products?search=${searchTerm}&page=${page}&limit=6`);
+            const response = await fetch(`https://product-hunt-server-ivory.vercel.app/products?search=${searchTerm}&page=${page}&limit=6`);
             const data = await response.json();
             if(data.products && data.totalPages !== undefined){
               setProducts(data.products);

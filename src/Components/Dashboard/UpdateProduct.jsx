@@ -13,7 +13,7 @@ const UpdateProduct = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await fetch (`http://localhost:5000/products/${id}`);
+            const response = await fetch (`https://product-hunt-server-ivory.vercel.app/products/${id}`);
             const data = await response.json();
             setProduct(data);
         };
@@ -31,7 +31,7 @@ const UpdateProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch(`http://localhost:5000/products/${id}`, {
+        const response = await fetch(`https://product-hunt-server-ivory.vercel.app/products/${id}`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(product),

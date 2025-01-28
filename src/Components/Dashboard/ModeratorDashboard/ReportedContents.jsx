@@ -6,14 +6,14 @@ const ReportedContents = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/reportedProducts')
+        fetch('https://product-hunt-server-ivory.vercel.app/reportedProducts')
         .then(res => res.json())
         .then(data => setReportedProducts(data))
         .catch(error => console.error('Error fetching reported products', error));
     },[]);
     const handleDelete = (id) =>{
         if(window.confirm('Are you sure! You want to delete this product?')){
-            fetch(`http://localhost:5000/products/${id}`, { method: 'DELETE'})
+            fetch(`https://product-hunt-server-ivory.vercel.app/products/${id}`, { method: 'DELETE'})
             .then(res => res.json())
             .then(data => {
                 if(data.message === 'Product deleted successfully'){

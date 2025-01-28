@@ -11,7 +11,7 @@ const TrendingProducts = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/trendingProducts')
+        axios.get('https://product-hunt-server-ivory.vercel.app/trendingProducts')
         .then(res => {
             setProducts(res.data.map(product => ({
                 ...product,
@@ -36,7 +36,7 @@ const TrendingProducts = () => {
             alert("You have already voted for this product");
             return;
         }
-        axios.post(`http://localhost:5000/upvote/${productId}`, {userId: user.uid})
+        axios.post(`https://product-hunt-server-ivory.vercel.app/upvote/${productId}`, {userId: user.uid})
         .then((response) => {
             
                 if(response.data.message === "User has already voted"){

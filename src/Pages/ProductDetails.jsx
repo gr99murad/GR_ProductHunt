@@ -18,13 +18,13 @@ const ProductDetails = () => {
 
     useEffect(() => {
         // fetch product details
-        axios.get(`http://localhost:5000/products/${id}`)
+        axios.get(`https://product-hunt-server-ivory.vercel.app/products/${id}`)
         .then(res => setProduct(res.data))
         .catch(error => console.error('Error fetching product details:', error));
 
 
         // fetch reviews for the product
-        axios.get(`http://localhost:5000/reviews/${id}`)
+        axios.get(`https://product-hunt-server-ivory.vercel.app/reviews/${id}`)
         .then(res => setReviews(res.data))
         .catch(error => console.error('Error fetching reviews:', error));
 
@@ -45,7 +45,7 @@ const ProductDetails = () => {
             alert("You have already voted for this product");
             return;
         }
-        axios.post(`http://localhost:5000/upvote/${productId}`, {userId: user.uid})
+        axios.post(`https://product-hunt-server-ivory.vercel.app/upvote/${productId}`, {userId: user.uid})
         .then((response) => {
             
                 if(response.data.message === "User has already voted"){
@@ -72,7 +72,7 @@ const ProductDetails = () => {
             return;
         }
 
-        axios.post(`http://localhost:5000/report/${id}`, { userId: user.id})
+        axios.post(`https://product-hunt-server-ivory.vercel.app/report/${id}`, { userId: user.id})
         .then(() => alert('product reported successfully'))
         .catch(error => console.error('Error reporting product:', error));
     };
@@ -88,7 +88,7 @@ const ProductDetails = () => {
             rating,
         };
 
-        axios.post('http://localhost:5000/reviews', review)
+        axios.post('https://product-hunt-server-ivory.vercel.app/reviews', review)
         .then(() => {
             setReviews(prevReviews => [...prevReviews, review]);
             setReviewDescription('');

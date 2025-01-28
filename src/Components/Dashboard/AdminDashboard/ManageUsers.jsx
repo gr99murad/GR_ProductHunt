@@ -13,7 +13,7 @@ const ManageUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try{
-                const response = await axios.get('http://localhost:5000/users');
+                const response = await axios.get('https://product-hunt-server-ivory.vercel.app/users');
                 
                 
                     setUsers(response.data);
@@ -31,7 +31,7 @@ const ManageUsers = () => {
 
     const updateUserRole = async (email, role) => {
         try{
-            const response = await axios.patch(`http://localhost:5000/users/${email}/role`, {role});
+            const response = await axios.patch(`https://product-hunt-server-ivory.vercel.app/users/${email}/role`, {role});
             if(response.data.modifiedCount > 0){
                 alert(`User role updated to ${role}`);
                 setUsers((prevUsers) => 

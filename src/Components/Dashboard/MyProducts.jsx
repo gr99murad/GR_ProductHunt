@@ -13,7 +13,7 @@ const MyProducts = () => {
         if(user && user.email){
             setLoading(true);
 
-            axios.get(`http://localhost:5000/products/owner/${user.email}`)
+            axios.get(`https://product-hunt-server-ivory.vercel.app/products/owner/${user.email}`)
             .then(res => {
                 setProducts(res.data);
                 setLoading(false);
@@ -33,7 +33,7 @@ const MyProducts = () => {
 
     const handleDelete = (id) => {
        if (window.confirm('Are you sure! You Want to delete this product?')){
-        axios.delete(`http://localhost:5000/products/${id}`)
+        axios.delete(`https://product-hunt-server-ivory.vercel.app/products/${id}`)
         .then(() => setProducts( products.filter(product => product._id !== id)))
         .catch(error => console.error('Error deleting product', error));
        }

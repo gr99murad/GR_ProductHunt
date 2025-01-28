@@ -13,7 +13,7 @@ const StatisticsPage = () => {
     useEffect(() => {
         const fetchStats = async () => {
             
-                const response = await fetch('http://localhost:5000/statistics');
+                const response = await fetch('https://product-hunt-server-ivory.vercel.app/statistics');
                 const data= await response.json();
                 setStatistics(data);
         }

@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/featured-products')
+        axios.get('https://product-hunt-server-ivory.vercel.app/featured-products')
         .then(res => {
             setProducts(res.data.map((product) => ({
                 ...product,
@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
             alert("You have already voted for this product");
             return;
         }
-        axios.post(`http://localhost:5000/upvote/${productId}`, {userId: user.uid})
+        axios.post(`https://product-hunt-server-ivory.vercel.app/upvote/${productId}`, {userId: user.uid})
         .then((response) => {
             
                 if(response.data.message === "User has already voted"){

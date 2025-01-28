@@ -52,7 +52,7 @@ const AuthProvider = ({children}) => {
         const { email, displayName, photoURL} = currentUser;
 
         // check if the user exist in database
-        const response = await fetch(`http://localhost:5000/users/${email}`, {
+        const response = await fetch(`https://product-hunt-server-ivory.vercel.app/users/${email}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -72,7 +72,7 @@ const AuthProvider = ({children}) => {
     };
 
     const fetchAndSetUserRole = async (email) => {
-        const response = await fetch(`http://localhost:5000/users/${email}`);
+        const response = await fetch(`https://product-hunt-server-ivory.vercel.app/users/${email}`);
         const result = await response.json();
         if(result?.role){
             setRole(result.role);

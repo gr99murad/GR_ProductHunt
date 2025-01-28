@@ -24,7 +24,7 @@ const MyProfile = () => {
             return;
         }
         if(couponCode){
-            const response = await axios.post(`http://localhost:5000/validateCoupon`, {couponCode});
+            const response = await axios.post(`https://product-hunt-server-ivory.vercel.app/validateCoupon`, {couponCode});
             if(response.data.discountAmount){
                 const discountPercentage = response.data.discountAmount;
                 const calculateDiscount = (discountPercentage /100)*10;
@@ -46,7 +46,7 @@ const MyProfile = () => {
         setSubscribed(true);
         setShowPaymentModal(false);
         try{
-            await axios.post(`http://localhost:5000/subscribe/${user.id}`);
+            await axios.post(`https://product-hunt-server-ivory.vercel.app/subscribe/${user.id}`);
             
             
             alert('Subscription successful');

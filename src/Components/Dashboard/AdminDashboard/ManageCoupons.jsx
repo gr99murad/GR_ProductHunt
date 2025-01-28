@@ -20,7 +20,7 @@ const ManageCoupons = () => {
     }, []);
 
     const fetchCoupons = async () => {
-        const {data} = await axios.get('http://localhost:5000/coupons');
+        const {data} = await axios.get('https://product-hunt-server-ivory.vercel.app/coupons');
         setCoupons(data);
     }
 
@@ -36,10 +36,10 @@ const ManageCoupons = () => {
         e.preventDefault();
 
         if(editingCouponId){
-            await axios.put(`http://localhost:5000/coupons/${editingCouponId}`, couponForm);
+            await axios.put(`https://product-hunt-server-ivory.vercel.app/coupons/${editingCouponId}`, couponForm);
             setEditingCouponId(null);
         }else{
-            await axios.post('http://localhost:5000/coupons', couponForm);
+            await axios.post('https://product-hunt-server-ivory.vercel.app/coupons', couponForm);
         }
 
         setCouponForm({
@@ -63,7 +63,7 @@ const ManageCoupons = () => {
 
     // delete a coupon
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:5000/coupons/${id}`)
+        await axios.delete(`https://product-hunt-server-ivory.vercel.app/coupons/${id}`)
         fetchCoupons();
         
 

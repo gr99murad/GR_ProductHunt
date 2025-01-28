@@ -13,7 +13,7 @@ const Dashboard = () => {
     useEffect(() => {
       const fetchUserRole = async () => {
         try{
-          const response = await axios.get(`http://localhost:5000/users/${user.email}`)
+          const response = await axios.get(`https://product-hunt-server-ivory.vercel.app/users/${user.email}`)
           setRole(response.data.role);
           setLoading(false);
         }catch(error){

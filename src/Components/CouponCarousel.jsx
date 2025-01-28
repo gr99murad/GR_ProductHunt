@@ -8,7 +8,7 @@ const CouponCarousel = () => {
     const [coupons, setCoupons] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/coupons')
+        fetch('https://product-hunt-server-ivory.vercel.app/coupons')
         .then(res => res.json())
         .then(data => setCoupons(data))
         .catch((error) => console.error('Error fetching coupons',error));
