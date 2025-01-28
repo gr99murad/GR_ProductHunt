@@ -73,7 +73,7 @@ const FeaturedProducts = () => {
                    </div>
 
                     <button className='btn flex items-center mt-2' onClick={() => handleUpvote(product._id)} disabled={product.voted}>
-                       {product.votes} {product.voted ? 'upvote' : 'Voted'} <BiUpvote></BiUpvote>
+                       {product.votes} {product.voted ? 'voted' : 'upvote'} <BiUpvote></BiUpvote>
                     </button>
 
                 </div>

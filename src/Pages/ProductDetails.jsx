@@ -111,7 +111,7 @@ const ProductDetails = () => {
                 <p>Votes: {product.votes}</p>
 
                 <button className='btn mt-2' onClick={() => handleUpvote(product._id)} disabled={product.voted}>
-                     {product.votes} {product.voted ? 'upvote' : 'Voted'} <BiUpvote></BiUpvote>
+                     {product.votes} {product.voted ? 'voted' : 'upvote'} <BiUpvote></BiUpvote>
                 </button>
 
                 <button className='btn mt-2 ml-4' onClick={handleReport}>Report</button>
