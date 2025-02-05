@@ -1,6 +1,7 @@
 <div align="center">
-  <img width="1000" src="https://i.ibb.co.com/yBNd6cfL/Screenshot-2025-02-05-170419.png"  />
+  <img width="1000" src="https://i.ibb.co.com/yBNd6cfL/Screenshot-2025-02-05-170419.png" />
 </div>
+
 <!-- GR_ProductHunt - Discover & Share Your Favorite Tech Products -->
 
 <h1>🚀 GR_ProductHunt - Discover & Share Your Favorite Tech Products</h1>
@@ -54,6 +55,59 @@
 <ul>
   <li>☁️ Firebase Hosting</li>
 </ul>
+
+<hr>
+
+<h2>📦 Dependencies Used</h2>
+
+<ul>
+  <li><code>react</code></li>
+  <li><code>react-router-dom</code></li>
+  <li><code>tailwindcss</code></li>
+  <li><code>express</code></li>
+  <li><code>mongodb</code></li>
+  <li><code>firebase</code></li>
+  <li><code>dotenv</code></li>
+  <li><code>axios</code></li>
+</ul>
+
+<hr>
+
+<h2>🚀 Running the Project Locally</h2>
+
+<p>To run the GR_ProductHunt project locally on your machine, follow these steps:</p>
+
+<ol>
+  <li><strong>Clone the Repository:</strong>
+    <pre><code>git clone https://github.com/your-username/GR_ProductHunt.git</code></pre>
+  </li>
+  
+  <li><strong>Install Dependencies:</strong> 
+    Navigate to the project folder and install the necessary dependencies by running the following command:
+    <pre><code>npm install</code></pre>
+  </li>
+  
+  <li><strong>Create a Firebase Project:</strong>
+    - Go to the <a href="https://console.firebase.google.com/" target="_blank">Firebase Console</a>
+    - Create a new project and get your Firebase configuration keys for Authentication.
+    - Add these keys to your project’s environment file (<code>.env</code>).
+  </li>
+  
+  <li><strong>Run the Development Server:</strong> 
+    Start the development server using the following command:
+    <pre><code>npm start</code></pre>
+    This will run the app at <code>http://localhost:3000</code>.
+  </li>
+
+  <li><strong>Connect to the Backend:</strong>
+    - Make sure your backend server (Express.js) is running.
+    - Update any API URLs in the frontend code to connect with the backend server if necessary.
+  </li>
+  
+  <li><strong>Enjoy!</strong> 
+    Your local instance of the GR_ProductHunt platform should now be up and running.
+  </li>
+</ol>
 
 <hr>
 
