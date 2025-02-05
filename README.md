@@ -94,7 +94,7 @@
   
   <li><strong>Run the Development Server:</strong> 
     Start the development server using the following command:
-    <pre><code>npm run dev</code></pre>
+    <pre><code>nodemon index.js</code></pre>
     This will run the app at <code>http://localhost:5000</code>.
   </li>
 
