@@ -92,7 +92,7 @@
     - Create a new project and get your Firebase configuration keys for Authentication.
   </li>
   
-  <li><strong>Run the Development Server:</strong> 
+  <li><strong>Run the Backend Server:</strong> 
     Start the development server using the following command:
     <pre><code>nodemon index.js</code></pre>
     This will run the app at <code>http://localhost:5000</code>.
