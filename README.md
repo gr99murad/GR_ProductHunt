@@ -79,33 +79,31 @@
 
 <ol>
   <li><strong>Clone the Repository:</strong>
-    <pre><code>git clone https://github.com/your-username/GR_ProductHunt.git</code></pre>
+    <pre><code>git clone https://github.com/gr99murad/GR_ProductHunt.git</code></pre>
   </li>
   
   <li><strong>Install Dependencies:</strong> 
     Navigate to the project folder and install the necessary dependencies by running the following command:
-    <pre><code>npm install</code></pre>
+    <pre><code>npm i</code></pre>
   </li>
   
   <li><strong>Create a Firebase Project:</strong>
     - Go to the <a href="https://console.firebase.google.com/" target="_blank">Firebase Console</a>
     - Create a new project and get your Firebase configuration keys for Authentication.
-    - Add these keys to your project’s environment file (<code>.env</code>).
   </li>
   
   <li><strong>Run the Development Server:</strong> 
     Start the development server using the following command:
-    <pre><code>npm start</code></pre>
-    This will run the app at <code>http://localhost:3000</code>.
+    <pre><code>npm run dev</code></pre>
+    This will run the app at <code>http://localhost:5000</code>.
   </li>
 
   <li><strong>Connect to the Backend:</strong>
     - Make sure your backend server (Express.js) is running.
-    - Update any API URLs in the frontend code to connect with the backend server if necessary.
   </li>
   
   <li><strong>Enjoy!</strong> 
-    Your local instance of the GR_ProductHunt platform should now be up and running.
+    GR_ProductHunt platform should now be up and running.
   </li>
 </ol>
 
