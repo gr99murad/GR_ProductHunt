@@ -1,6 +1,4 @@
-<div align="center">
-  <img width="1000" src="https://i.ibb.co.com/yBNd6cfL/Screenshot-2025-02-05-170419.png"  />
-</div>
+
 # **GR_ProductHunt - Discover & Share Your Favorite Tech Products**
 **Live Site URL** : https://product-hunt-40eb9.web.app/
 
