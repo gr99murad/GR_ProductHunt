@@ -25,7 +25,7 @@ const Banner = () => {
         
     };
     return (
-        <div className='w-60 md:w-[700px] lg:w-full mx-auto h-96 relative overflow-hidden'>
+        <div className='w-72 md:w-96 lg:w-full mx-auto h-96 relative overflow-hidden'>
             <Slider {...setting}>
                 <div className='relative'>
                     <img className='w-full h-full object-cover ' src={webAppImg} alt="" />

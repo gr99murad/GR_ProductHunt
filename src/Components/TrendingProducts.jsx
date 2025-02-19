@@ -59,11 +59,11 @@ const TrendingProducts = () => {
 
 
     return (
-        <div>
+        <div className=''>
             <h2 className='text-xl font-bold my-4 text-center'>Trending Products</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
             {products.map(product => (
-                <div key={product._id} className='border rounded p-4'>
+                <div key={product._id} className='border rounded p-4 bg-[#cccccc]'>
                     <img className='w-16 h-16 rounded ' src={product.image} alt={product.name} />
                     <div>
                     <h3 className='text-lg font-semibold cursor-pointer' onClick={() => navigate(`/products/${product._id}`)}>{product.name}</h3>
@@ -80,7 +80,7 @@ const TrendingProducts = () => {
             ))}
             </div>
             <div className='mt-6'>
-                <button onClick={() => navigate('/products')} className='px-4 py-2 bg-blue-600 text-white rounded'>Show All Products</button>
+                <button onClick={() => navigate('/products')} className='px-4 py-2 bg-[#886e63] text-white rounded'>Show All Products</button>
 
             </div>
         </div>
