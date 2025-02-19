@@ -45,6 +45,10 @@ const Dashboard = () => {
 
               {role === 'user' && (
                 <>
+                <li className='mb-2'>
+                        <Link to="statistics">Overview Page</Link> 
+
+                    </li>
                 
                     <li className='mb-2'>
                         <Link to="addProduct">Add Product</Link> 

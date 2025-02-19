@@ -5,6 +5,7 @@ import { getAuth, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
+  
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");

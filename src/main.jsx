@@ -103,7 +103,7 @@ const router = createBrowserRouter([
       },
       {
         path: "statistics",
-        element: <PrivateRoute allowedRoles={["admin"]}>
+        element: <PrivateRoute allowedRoles={["admin", "user"]}>
           <StatisticsPage></StatisticsPage>
         </PrivateRoute>,
       },

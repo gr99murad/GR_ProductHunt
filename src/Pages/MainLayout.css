@@ -1,0 +1,26 @@
+body.light{
+    background-color: white;
+    color: black;
+}
+
+body.dark{
+    background-color: #333;
+    color: white;
+}
+
+
+.theme-toggle-btn{
+    background-color: transparent;
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: fixed;
+    top: 40px;
+    left: 40px;
+}
+
+body.dark .theme-toggle-btn {
+    border-color: #666;
+    color: white;
+}
