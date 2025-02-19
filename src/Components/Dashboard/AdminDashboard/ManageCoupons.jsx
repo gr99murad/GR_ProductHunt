@@ -70,7 +70,7 @@ const ManageCoupons = () => {
     };
     return (
         <div>
-            <h1 className='text-xl font-bold text-center'>Manage Coupons</h1>
+            <h1 className='text-xl font-bold text-center py-4'>Manage Coupons</h1>
             <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
                 <input className='input input-bordered' type="text" name='couponCode' placeholder='Coupon Code' value={couponForm.couponCode} onChange={handleInputChange} required />
                 <input className='input input-bordered' type="date" name='expiryDate' placeholder='Expiry Date' value={couponForm.expiryDate} onChange={handleInputChange} required/>

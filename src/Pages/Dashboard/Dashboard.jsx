@@ -38,13 +38,14 @@ const Dashboard = () => {
               <li className="mb-2">
                 <Link to="/">Home</Link>
               </li>
-
-              {role === 'user' && (
-                <>
-                <li className='mb-2'>
+              <li className='mb-2'>
                         <Link to="myProfile">My Profile</Link> 
 
                     </li>
+
+              {role === 'user' && (
+                <>
+                
                     <li className='mb-2'>
                         <Link to="addProduct">Add Product</Link> 
 

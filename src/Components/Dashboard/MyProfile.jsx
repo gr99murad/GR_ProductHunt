@@ -58,7 +58,7 @@ const MyProfile = () => {
         }
     };
     return (
-        <div className='my-24 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md'>
+        <div className='py-24 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md'>
             <h2 className='text-2xl font-bold text-center mb-4'>My profile</h2>
             <div className='text-center'>
             <img  className='w-24 h-24 rounded-full mx-auto mb-4 border' src={user?.photoURL} alt={user?.displayName} />

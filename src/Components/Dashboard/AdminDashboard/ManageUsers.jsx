@@ -47,7 +47,8 @@ const ManageUsers = () => {
     return (
         <div>
             <h1 className='text-xl font-bold mb-4 text-center'>Manage Users</h1>
-            <table className=' w-full border border-collapse border-gray-300 '>
+            <div className='overflow-x-auto w-72 md:w-96 lg:w-full'>
+            <table className='table-auto border border-collapse border-gray-300 '>
                 <thead>
                     <tr className='bg-gray-200'>
                         <th className='border border-gray-300 px-4 py-2'>Name</th>
@@ -87,6 +88,7 @@ const ManageUsers = () => {
                 </tbody>
 
             </table>
+            </div>
         </div>
     );
 };
