@@ -56,6 +56,15 @@ const Navbar = () => {
       <li>
         <NavLink to="/products">Products</NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <Link to="/profile" className="text-text hover:text-primary">
+              My Profile
+            </Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
