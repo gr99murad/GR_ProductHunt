@@ -8,6 +8,7 @@ import CouponCarousel from '../Components/CouponCarousel';
 import BestSellers from '../Components/BestSellers';
 import NewArrivals from '../Components/NewArrivals';
 import ContactUs from '../Components/ContactUs';
+import AboutUs from '../Components/AboutUs';
 
 
 
@@ -18,6 +19,8 @@ const Home = () => {
             <div className='relative z-10'>
             <Banner></Banner>
             </div>
+
+            <AboutUs></AboutUs>
             
             <div className='relative z-0 my-12'>
             <FeaturedProducts></FeaturedProducts>
