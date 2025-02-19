@@ -6,6 +6,7 @@ const Products = () => {
     const [search, setSearch] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [sortOrder, setSortOrder] = useState('asc'); // sorting order state
     const navigate = useNavigate();
 
     const fetchProducts = async (searchTerm = '', page = 1) => {
@@ -27,10 +28,16 @@ const Products = () => {
     useEffect(() => {
         fetchProducts(search, currentPage);
     }, [search, currentPage]);
+    
+    // sorting by votes
+    const sortedProducts = [...products].sort((a,b) => {
+      return sortOrder === 'asc' ? a.votes - b.votes : b.votes - a.votes;
+    });
     return (
       <div>
         <h1 className="text-2xl font-bold text-center my-4">Products</h1>
-        <div className="mb-4 flex justify-center">
+        {/* search by tags */}
+        <div className="mb-4 flex justify-center gap-4">
           <input
             type="text"
             placeholder="Search by tags"
@@ -41,10 +48,18 @@ const Products = () => {
               setCurrentPage(1);
             }}
           />
+
+          <button className='bg-[#94776b] text-white px-4 py-2 rounded'
+          
+          onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+          >
+            Sort by Votes ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
+            
+          </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sortedProducts.map((product) => (
             <div key={product._id} className="border p-4 rounded shadow">
               <div className="flex gap-10">
                 <img
@@ -65,7 +80,7 @@ const Products = () => {
 
               <p>{product.description}</p>
               <p>Votes: {product.votes}</p>
-              <button onClick={() => navigate(`/products/${product._id}`)} className="bg-blue-500 text-white px-4 py-2 rounded mt-2">
+              <button onClick={() => navigate(`/products/${product._id}`)} className="bg-[#c1c0d8]  px-4 py-2 rounded mt-2">
                 View Details
               </button>
             </div>
@@ -78,7 +93,7 @@ const Products = () => {
               key={index}
               className={`px-4 py-2 mx-1 ${
                 currentPage === index + 1
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#94776b] text-white"
                   : "bg-gray-200"
               }`}
               onClick={() => setCurrentPage(index + 1)}

@@ -20,7 +20,10 @@ const Home = () => {
             <Banner></Banner>
             </div>
 
-            <AboutUs></AboutUs>
+            <div id='aboutUs' className='py-20 md:py-24'>
+                <AboutUs></AboutUs>
+
+            </div>
             
             <div className='relative z-0 my-12'>
             <FeaturedProducts></FeaturedProducts>
@@ -30,7 +33,10 @@ const Home = () => {
             <BestSellers></BestSellers>
             <NewArrivals></NewArrivals>
             <CouponCarousel></CouponCarousel>
-            <ContactUs></ContactUs>
+            <div id='contact' className='py-20 md:py-24'>
+                <ContactUs ></ContactUs>
+
+            </div>
         </div>
     );
 };

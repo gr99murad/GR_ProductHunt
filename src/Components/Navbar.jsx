@@ -1,10 +1,24 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToAboutUs = () => {
+    const aboutSection = document.getElementById("aboutUs");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const { user, signOutUser } = useContext(AuthContext);
 
   const handleLogout = async () => {
@@ -20,6 +34,23 @@ const Navbar = () => {
     <>
       <li>
         <NavLink to="/">Home</NavLink>
+      </li>
+      
+      <li>
+        <button
+          onClick={scrollToAboutUs}
+          className="text-text hover:text-primary"
+        >
+          About
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={scrollToContact}
+          className="text-text hover:text-primary"
+        >
+          Contact
+        </button>
       </li>
       <li>
         <NavLink to="/products">Products</NavLink>
@@ -62,11 +93,15 @@ const Navbar = () => {
       <div className="navbar-end">
         {!user ? (
           <>
-            <NavLink to="/login">
-              <button className="btn btn-primary">Login</button>
-            </NavLink>
-            <NavLink to="/register">Registers</NavLink>
-          </>
+          <div className="flex gap-6">
+            <Link to="/login" className="btn btn-outline bg-primary text-white ">
+              Login
+            </Link>
+            <Link to="/register" className="btn btn-outline">
+              Registers
+            </Link>
+          </div>
+        </>
         ) : (
           <div className="dropdown dropdown-end">
             <div
