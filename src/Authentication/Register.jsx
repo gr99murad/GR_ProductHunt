@@ -50,7 +50,7 @@ const Register = () => {
   return (
     <>
     <Navbar></Navbar>
-      <div className="hero bg-[#e6e6e6] min-h-screen py-24">
+      <div className="hero  min-h-screen py-24">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left w-96">
             <Lottie animationData={registerLottieData}></Lottie>

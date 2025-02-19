@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
+import { FaGoogle } from 'react-icons/fa';
+import Navbar from '../Components/Navbar';
 
 
 
@@ -59,12 +61,14 @@ const Login = () => {
       }
     };
     return (
-      <div className="hero bg-base-200 min-h-screen">
+     <>
+     <Navbar></Navbar>
+      <div className="hero py-24 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left w-96">
             <Lottie animationData={loginLottieData}></Lottie>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-[#eae4e1] w-full max-w-sm shrink-0 shadow-2xl">
             <h1 className=" ml-8 mt-4 text-5xl font-bold">Sign In Now!</h1>
             <form onSubmit={handleSignIn} className="card-body">
               <div className="form-control">
@@ -93,17 +97,24 @@ const Login = () => {
                 {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary" disabled={loading}>{loading ? 'LOading...' : 'Login'}</button>
+                <button className="btn bg-[#886e63] text-white" disabled={loading}>{loading ? 'LOading...' : 'Login'}</button>
               </div>
             </form>
 
             <div className="text-center mt-4">
-              <button
+            <button
                 onClick={handleGoogleSignIn}
-                className="btn btn-secondary"
-                disabled= {loading}
+                className="btn bg-[#bea7a7] text-text"
+                disabled={loading}
               >
-                {loading ? 'Loading...' : 'sign in with Google'}
+                {loading ? (
+                  "Loading..."
+                ) : (
+                  <>
+                    <FaGoogle className="text-xl"></FaGoogle>
+                    <span>Sign in with Google</span>
+                  </>
+                )}
               </button>
             </div>
             <p className="text-center mt-4">
@@ -116,6 +127,7 @@ const Login = () => {
         </div>
       
       </div>
+     </>
     );
 };
 

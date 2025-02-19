@@ -127,7 +127,7 @@ const Navbar = () => {
                 <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
               <li>
-                <button onClick={handleLogout} className="btn btn-secondary">
+                <button onClick={handleLogout} className="btn bg-[#8a899f]">
                   Logout
                 </button>
               </li>

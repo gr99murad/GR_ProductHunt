@@ -26,11 +26,11 @@ const Dashboard = () => {
         fetchUserRole();
       }
     }, [user]);
-    if(loading) return <p>Loading...</p>;
+    if(loading) return <p></p>;
 
     if(!user || !role) return <Navigate to="/login" state={{ from: location}}></Navigate>
     return (
-      <div className="flex h-screen">
+      <div className="flex bg-[#e6e6e6] h-screen">
         <div className="w-1/4 bg-gray-200 p-4">
           <h2 className="text-xl font-bold mb-4">Dashboard</h2>
           <nav>

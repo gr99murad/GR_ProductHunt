@@ -65,9 +65,11 @@ const MyProducts = () => {
                             <td className='border border-gray-300 px-4 py-2'>{product.name}</td>
                             <td className='border border-gray-300 px-4 py-2'>{product.votes}</td>
                             <td className='border border-gray-300 px-4 py-2'>{product.status || 'pending'}</td>
-                            <td className='border border-gray-300 px-4 py-2'>
-                                <button className='btn' onClick={() => handleUpdate(product._id)}>Update</button>
+                            <td className='border border-gray-300 px-4 py-2 '>
+                                <div className='flex gap-2'>
+                                <button className='btn bg-[#8a899f]' onClick={() => handleUpdate(product._id)}>Update</button>
                                 <button className='btn' onClick={() => handleDelete(product._id)}>Delete</button>
+                                </div>
 
                             </td>
                         </tr>

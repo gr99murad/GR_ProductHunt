@@ -58,17 +58,19 @@ const MyProfile = () => {
         }
     };
     return (
-        <div>
-            <h2 className='text-xl font-bold text-center'>My profile</h2>
-            <img src={user?.photoURL} alt={user?.displayName} />
-            <h2>{user?.displayName}</h2>
-            <p>{user?.email}</p>
+        <div className='my-24 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md'>
+            <h2 className='text-2xl font-bold text-center mb-4'>My profile</h2>
+            <div className='text-center'>
+            <img  className='w-24 h-24 rounded-full mx-auto mb-4 border' src={user?.photoURL} alt={user?.displayName} />
+            <h2 className='text-xl font-semibold'>{user?.displayName}</h2>
+            <p className='text-text'>{user?.email}</p>
+            </div>
 
             {!subscribed  ? (
 
-                <div>
-                    <input type="text" value={couponCode} onChange={handleCouponChange} placeholder='Enter coupon code' className='input input-bordered' />
-                    <button className='btn' onClick={handleSubscribe}>Subscribe for $10/month</button>
+                <div className='mt-4'>
+                    <input type="text" value={couponCode} onChange={handleCouponChange} placeholder='Enter coupon code' className='input input-bordered w-full p-2 border rounded' />
+                    <button className='btn w-full rounded mt-2 p-2' onClick={handleSubscribe}>Subscribe for $10/month</button>
                 </div>
             ):(
                 <p>Status: Verified</p>

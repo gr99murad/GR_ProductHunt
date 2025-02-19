@@ -24,7 +24,7 @@ const CouponCarousel = () => {
         autoplaySpeed: 3000,
     };
     return (
-        <div className='w-full max-w-screen-xl mx-auto p-5 lg:p-4'>
+        <div className='w-full max-w-screen-xl mx-auto '>
             <Slider {...settings}>
                 {coupons.length > 0 ? (
                     coupons.map((coupon) => (
@@ -33,7 +33,7 @@ const CouponCarousel = () => {
                                 <h3 className='text-lg md:text-xl font-semibold text-blue-600 mb-2 '>Coupon Code: {coupon.couponCode}</h3>
                                 <p className='text-lg  text-red-400'>Discount: {coupon.discountAmount}%</p>
                                 <p className='text-lg text-base'>Expiry Date: { new Date(coupon.expiryDate).toLocaleDateString()}</p>
-                                <p>{coupon.description}</p>
+                        
                             </div>
                         </div>
                     ))
