@@ -12,7 +12,7 @@ const NewArrivals = () => {
     return (
         <div>
             <h2>New Arrivals</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 gap-6'>
                 {newArrivals.map(product => (
                     <div key={product._id} className='border bg-[#f2f2f2] rounded p-4 shadow-md '>
                         <img className='w-16 h-16 rounded' src={product.image} alt={product.name} />

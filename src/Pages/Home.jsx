@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CouponCarousel from '../Components/CouponCarousel';
 import BestSellers from '../Components/BestSellers';
+import NewArrivals from '../Components/NewArrivals';
+import ContactUs from '../Components/ContactUs';
 
 
 
@@ -23,7 +25,9 @@ const Home = () => {
             <TrendingProducts></TrendingProducts>
 
             <BestSellers></BestSellers>
+            <NewArrivals></NewArrivals>
             <CouponCarousel></CouponCarousel>
+            <ContactUs></ContactUs>
         </div>
     );
 };
