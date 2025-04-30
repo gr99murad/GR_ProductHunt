@@ -10,6 +10,7 @@ import NewArrivals from '../Components/NewArrivals';
 import ContactUs from '../Components/ContactUs';
 import AboutUs from '../Components/AboutUs';
 import Launchpad from '../Components/Launchpad';
+import TechInsights from '../Components/TechInsights';
 
 
 
@@ -39,6 +40,7 @@ const Home = () => {
                 <ContactUs ></ContactUs>
 
             </div>
+            <TechInsights></TechInsights>
         </div>
     );
 };
