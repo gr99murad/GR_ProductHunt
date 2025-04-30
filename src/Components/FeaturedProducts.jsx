@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
             <h2 className='text-xl font-bold my-4 text-center'>Featured Products</h2>
             <div className='grid grid-cols-1 md:grid-cols-2  gap-6'>
             {products.map(product => (
-                <div key={product._id} className='border bg-[#c7c7d1] rounded p-4 shadow-md'>
+                <div key={product._id} className='border bg-white dark:bg-gray-900 rounded p-4 shadow-md'>
                    <div className='flex gap-10'>
                    <img className='w-16 h-16 rounded ' src={product.image} alt={product.name} />
                     <div>

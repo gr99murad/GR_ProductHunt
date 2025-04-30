@@ -14,7 +14,7 @@ const NewArrivals = () => {
             <h2 className='text-xl font-bold my-4 text-center'>New Arrivals</h2>
             <div className='grid grid-cols-1 gap-6'>
                 {newArrivals.map(product => (
-                    <div key={product._id} className='border bg-[#f2f2f2] rounded p-4 shadow-md '>
+                    <div key={product._id} className='border light:bg-[#f2f2f2] rounded p-4 shadow-md '>
                         <img className='w-16 h-16 rounded' src={product.image} alt={product.name} />
                         <h3 className='text-lg font-semibold'>{product.name}</h3>
 

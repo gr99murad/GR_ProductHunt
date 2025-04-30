@@ -16,7 +16,7 @@ const MainLayOut = () => {
         setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
     }
   return (
-    <div className="bg-[#e6e6e6]">
+    <div className="bg-white dark:bg-gray-900">
         
       <Navbar></Navbar>
       

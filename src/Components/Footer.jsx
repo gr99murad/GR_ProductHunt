@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
       <div>
-        <footer className="footer footer-center bg-[#cccccc] text-base-content rounded p-10">
+        <footer className="footer footer-center light:bg-[#cccccc] text-base-content rounded p-10">
           <aside>
             <img className="w-16 h-16 rounded-full" src="https://i.ibb.co.com/X5yXRjS/logo.jpg" alt="" />
             <p>

@@ -28,7 +28,7 @@ const CouponCarousel = () => {
             <Slider {...settings}>
                 {coupons.length > 0 ? (
                     coupons.map((coupon) => (
-                        <div key={coupon._id} className='flex justify-center items-center text-center p-4 bg-gray-100 rounded-xl shadow-2xl'>
+                        <div key={coupon._id} className='flex justify-center items-center text-center p-4 bg-white dark:bg-gray-900 rounded-xl shadow-2xl'>
                             <div className='flex flex-col gap-5 font-xl font-bold '>
                                 <h3 className='text-lg md:text-xl font-semibold text-blue-600 mb-2 '>Coupon Code: {coupon.couponCode}</h3>
                                 <p className='text-lg  text-red-400'>Discount: {coupon.discountAmount}%</p>
