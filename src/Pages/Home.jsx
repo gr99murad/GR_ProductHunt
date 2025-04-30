@@ -9,6 +9,7 @@ import BestSellers from '../Components/BestSellers';
 import NewArrivals from '../Components/NewArrivals';
 import ContactUs from '../Components/ContactUs';
 import AboutUs from '../Components/AboutUs';
+import Launchpad from '../Components/Launchpad';
 
 
 
@@ -25,6 +26,7 @@ const Home = () => {
 
             </div>
             
+            <Launchpad></Launchpad>
             <div className='relative z-0 my-12'>
             <FeaturedProducts></FeaturedProducts>
             </div>
